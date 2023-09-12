@@ -2,6 +2,7 @@ from django.urls import path
 
 from userextend import views
 
-urlpattrens =[
-    path('create_user/', views.UserCreateView.as_view(), name='create-user'),
+urlpatterns =[
+    path('pages_register/', views.UserCreateView.as_view(), name='pages-register'),
+    path('users_profile/<int:pk>/', views.UserDetailedView.as_view(), name='users-profile'),
 ]

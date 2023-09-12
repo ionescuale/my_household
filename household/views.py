@@ -1,7 +1,8 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView
+from django.views.generic import CreateView, ListView, DeleteView, DetailView
 
 from household.forms import HouseholdForm
 from household.models import Household
@@ -14,14 +15,14 @@ def index(request):
     return HttpResponse(html_template.render(context, request))
 
 
-class HouseholdCreateView(CreateView):
+class HouseholdCreateView(LoginRequiredMixin, CreateView):
     template_name = 'household/create_household.html'
     model = Household
     form_class = HouseholdForm
     success_url = reverse_lazy('index')
 
 
-class HouseholdListView(ListView):
+class HouseholdListView(LoginRequiredMixin, ListView):
     model = Household
     context_object_name = 'households'  # Household.objects.all()
     success_url = reverse_lazy('index')
@@ -30,5 +31,8 @@ class HouseholdListView(ListView):
         return Household.objects.filter(active=True)
 
 
-class HouseholdDeleteView(DeleteView):
+class HouseholdDetailedView(LoginRequiredMixin, DetailView):
+    pass
+
+class HouseholdDeleteView(LoginRequiredMixin, DeleteView):
     pass
