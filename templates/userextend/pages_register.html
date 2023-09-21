@@ -34,29 +34,45 @@
                   <form class="row g-3 needs-validation" method="post">
                       {% csrf_token %}
 
-                      <label for="{{ form.first_name.id_for_label }}">First Name:</label>
-                      {{ form.first_name }}
-                      {{ form.first_name.errors }}
+                      <label for="{{ user_form.first_name.id_for_label }}">First Name:</label>
+                      {{ user_form.first_name }}
+                      {{ user_form.first_name.errors }}
 
-                      <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
-                      {{ form.last_name }}
-                      {{ form.last_name.errors }}
+                      <label for="{{ user_form.last_name.id_for_label }}">Last Name:</label>
+                      {{ user_form.last_name }}
+                      {{ user_form.last_name.errors }}
 
-                      <label for="{{ form.email.id_for_label }}">Email:</label>
-                      {{ form.email }}
-                      {{ form.email.errors }}
+                      <label for="{{ user_form.email.id_for_label }}">Email:</label>
+                      {{ user_form.email }}
+                      {{ user_form.email.errors }}
 
-                      <label for="{{ form.username.id_for_label }}">Username:</label>
-                      {{ form.username }}
-                      {{ form.username.errors }}
+                      <label for="{{ profile_form.phone.id_for_label }}">Phone:</label>
+                      {{ profile_form.phone }}
+                      {{ profile_form.phone.errors }}
 
-                      <label for="{{ form.password1.id_for_label }}">Password:</label>
-                      {{ form.password1 }}
-                      {{ form.password1.errors }}
+                      <label for="{{ form.city.id_for_label }}">City:</label>
+                      {{ profile_form.city }}
+                      {{ profile_form.city.errors }}
 
-                      <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
-                      {{ form.password2 }}
-                      {{ form.password2.errors }}
+                      <label for="{{ profile_form.country.id_for_label }}">Country:</label>
+                      {{ profile_form.country }}
+                      {{ profile_form.country.errors }}
+
+                       <label for="{{ profile_form.birth_date.id_for_label }}">Birth date:</label>
+                      {{ profile_form.birth_date }}
+                      {{ profile_form.birth_date.errors }}
+
+                      <label for="{{ user_form.username.id_for_label }}">Username:</label>
+                      {{ user_form.username }}
+                      {{ user_form.username.errors }}
+
+                      <label for="{{ user_form.password1.id_for_label }}">Password:</label>
+                      {{ user_form.password1 }}
+                      {{ user_form.password1.errors }}
+
+                      <label for="{{ user_form.password2.id_for_label }}">Confirm Password:</label>
+                      {{ user_form.password2 }}
+                      {{ user_form.password2.errors }}
 
                     <div class="col-12">
                       <div class="form-check">
